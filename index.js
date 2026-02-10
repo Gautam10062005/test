@@ -76,7 +76,9 @@ app.post('/bfhl', async (req, res) => {
             default:
                 return res.status(400).json({ is_success: false });
         }
-
+app.get('/', (req, res) => {
+    res.send('API is running. Use /health or /bfhl endpoints.');
+});
         res.status(200).json({
             is_success: true,
             official_email: CHITKARA_EMAIL,
@@ -89,4 +91,5 @@ app.post('/bfhl', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
+
 app.listen(PORT);
